@@ -1,6 +1,7 @@
 package com.example.customer.Service;
 
 import com.example.customer.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public interface CustomerService {
 
-    void addCustomer(Customer customer);
+    Customer addCustomer(Customer customer);
     void updateCustomer(Customer customer);
     Customer getCustomerById(int id);
     List<Customer> getAllCustomers();

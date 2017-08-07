@@ -1,8 +1,16 @@
 package com.example.customer.model;
 
+import com.sun.javafx.beans.IDProperty;
+
+import javax.persistence.*;
+
+import static javax.xml.ws.soap.AddressingFeature.ID;
+
 /**
  * Created by franciswalsh on 8/4/17.
  */
+@Entity
+@Table(name = "customer")
 public class Customer {
 
     private int id;
@@ -16,6 +24,8 @@ public class Customer {
 
     }
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -24,6 +34,7 @@ public class Customer {
         this.id = id;
     }
 
+    @Column(name = "firstname")
     public String getFirstName() {
         return firstName;
     }
@@ -32,6 +43,7 @@ public class Customer {
         this.firstName = firstName;
     }
 
+    @Column(name = "lastname")
     public String getLastName() {
         return lastName;
     }
@@ -62,5 +74,20 @@ public class Customer {
 
     public void setCustomer_pkey(int customer_pkey) {
         this.customer_pkey = customer_pkey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+
+        Customer customer = (Customer) o;
+
+        return getId() == customer.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return getId();
     }
 }

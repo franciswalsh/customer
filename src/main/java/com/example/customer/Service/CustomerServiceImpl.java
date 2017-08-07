@@ -1,7 +1,6 @@
 package com.example.customer.Service;
 
 import com.example.customer.Repository.CustomerRepository;
-import com.example.customer.Repository.CustomerRepositoryImpl;
 import com.example.customer.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -28,30 +27,30 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Transactional
     @Override
-    public void addCustomer(Customer customer) {
-        customerRepository.addCustomer(customer);
+    public Customer addCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
 
     @Transactional
     @Override
     public void updateCustomer(Customer customer) {
-        customerRepository.updateCustomer(customer);
+        customerRepository.save(customer);
     }
 
     @Override
     public Customer getCustomerById(int id) {
-        return customerRepository.getCustomerById(id);
+        return customerRepository.findOne(id);
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        return customerRepository.getAllCustomers();
+        return customerRepository.findAll();
     }
 
     @Transactional
     @Override
     public void deleteCustomer(int id) {
-        customerRepository.deleteCustomer(id);
+        customerRepository.delete(id);
     }
 
     private static class CustomerMapper implements RowMapper<Customer> {
