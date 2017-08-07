@@ -24,7 +24,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     }
 
-    private final String INSERT_SQL = "INSERT INTO customers (firstName, lastName, phone, email) VALUES (?,?,?,?)";
+    private final String INSERT_SQL = "INSERT INTO customer (firstName, lastName, phone, email) VALUES (?,?,?,?)";
     @Override
     public void addCustomer(Customer customer) {
         jdbcTemplate.update(INSERT_SQL,
@@ -32,7 +32,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                             customer.getPhone(), customer.getEmail() );
     }
 
-    private final String UPDATE_SQL = "UDPDATE customers SET firstName=?, lastName=?, phone=?, email=?, WHERE id=?";
+    private final String UPDATE_SQL = "UDPDATE customer SET firstName=?, lastName=?, phone=?, email=?, WHERE id=?";
     @Override
     public void updateCustomer(Customer customer) {
         jdbcTemplate.update(UPDATE_SQL,
@@ -40,19 +40,19 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 customer.getPhone(), customer.getEmail(), customer.getId() );
     }
 
-    private final String SELECT_BY_ID_SQL = "SELECT * FROM customers WHERE id=?";
+    private final String SELECT_BY_ID_SQL = "SELECT * FROM customer WHERE id=?";
     @Override
     public Customer getCustomerById(int id) {
         return jdbcTemplate.queryForObject(SELECT_BY_ID_SQL, new CustomerMapper(), id);
     }
 
-    private final String SELECT_SQL = "SELECT * FROM customers";
+    private final String SELECT_SQL = "SELECT * FROM customer";
     @Override
     public List<Customer> getAllCustomers() {
         return jdbcTemplate.query(SELECT_SQL, new CustomerMapper());
     }
 
-    private final String DELETE_SQL = "DELETE FROM customers WHERE id=?";
+    private final String DELETE_SQL = "DELETE FROM customer WHERE id=?";
     @Override
     public void deleteCustomer(int id) {
         jdbcTemplate.update(DELETE_SQL, id);
