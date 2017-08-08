@@ -47,4 +47,9 @@ public class CustomerController {
         return "login";
     }
 
+    @RequestMapping("/loggedout")
+    String logout(Model model) {
+        return "loggedout";
+    }
+
 }

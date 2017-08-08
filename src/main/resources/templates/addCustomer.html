@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Add a customer</title>
 </head>
 <body>
-    <form action="/addCustomer" method="post">
+    <form th:action="@{/addCustomer}" method="post">
         <input type="text" placeholder="First Name" name="firstName"/>
         <input type="text" placeholder="Last Name" name="lastName"/>
         <input type="text" placeholder="Phone Number" name="phone"/>
         <input type="text" placeholder="Email Address" name="email"/>
         <input type="submit" value="Add New Customer"/>
     </form>
+    <div sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
 </body>
 </html>
