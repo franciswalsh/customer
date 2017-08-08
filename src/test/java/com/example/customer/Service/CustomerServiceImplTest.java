@@ -33,7 +33,7 @@ public class CustomerServiceImplTest {
         System.out.println("tearing down test");
     }
     @Autowired
-    CustomerRepository customerRepository;
+    CustomerServiceImpl customerRepository;
 
     @Transactional
     @Test

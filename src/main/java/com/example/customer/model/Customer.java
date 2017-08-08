@@ -18,7 +18,6 @@ public class Customer {
     private String lastName;
     private String phone;
     private String email;
-    private int customer_pkey;
 
     public Customer(){
 
@@ -68,13 +67,6 @@ public class Customer {
         this.email = email;
     }
 
-    public int getCustomer_pkey() {
-        return customer_pkey;
-    }
-
-    public void setCustomer_pkey(int customer_pkey) {
-        this.customer_pkey = customer_pkey;
-    }
 
     @Override
     public boolean equals(Object o) {
