@@ -1,0 +1,39 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customerdb
+    username: customeruser
+    password: customerpass
+
+facebook:
+  client:
+    clientId: 499063603787910
+    clientSecret: 7964abb27f91defe93fb50a019fd9b07
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+github:
+  client:
+    clientId: e9c3857939b20966e46c
+    clientSecret: ef927388c017a118265fb90469ea12d90c67350d
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
+google:
+  client:
+    clientId: 949857127261-87bslhm5og6ae28lrk5p17sd6oqote7n.apps.googleusercontent.com
+    clientSecret:  pMZDmqz6WuvfAKuPkn57o9zl
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    clientAuthenticationScheme: form
+    scope: email
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
