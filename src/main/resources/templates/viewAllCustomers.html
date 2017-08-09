@@ -7,12 +7,15 @@
 <body>
     <h1>Here are all the customers: </h1>
     <ul th:each="customer : ${customers}">
-        <li th:text="${customer}"></li>
+        <li><strong>ID:</strong> <a th:href="@{/customer/{id}(id=${customer.id})}"><span th:text="${customer.id}"></span></a>
+            <strong>Name:</strong> <span th:text="${customer.firstName}"></span>
+            <span th:text="${customer.lastName}"></span></li>
     </ul>
     <div sec:authorize="isAuthenticated()">
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
     </div>
+    <a th:href="@{/addCustomer}">Add a customer</a>
 </body>
 </html>

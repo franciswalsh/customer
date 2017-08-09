@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Customer <span th:text="${customer.id}"></span></title>
+</head>
+<body>
+    <h1>Here is Customer <span th:text="${customer.id}"></span>'s Information</h1>
+    <ul>
+        <li>First Name: <span th:text="${customer.firstName}"></span></li>
+        <li>Last Name: <span th:text="${customer.lastName}"></span></li>
+        <li>Phone Number: <span th:text="${customer.phone}"></span></li>
+        <li>Email Address: <span th:text="${customer.email}"></span></li>
+    </ul>
+    <a th:href="@{/customers}">Return to customers page</a>
+</body>
+</html>
